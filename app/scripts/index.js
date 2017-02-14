@@ -6,19 +6,21 @@ var formTemplate = require('../templates/form.hbs');
 var pizzaTemplate = require('../templates/pizza.hbs');
 
 
-var todaysLasagna = new model.LasagnaCollection();
+var todaysPizza = new model.PizzaCollection();
 
-console.log(todaysLasagna);
+console.log(todaysPizza);
 
-todaysLasagna.on('sync', function(lasagna) {
+$(".form-group").html(formTemplate());
 
-    $('.button-class').text("Click Me...");
+todaysPizza.on('sync', function(pizza) {
+
+    $('.button-class').text("Get Pizzas");
     $('.pizzas').html("");
-    todaysLasagna.forEach(function(lasagna){
-    lasagna.get('lasagna');
-    console.log('lasagna', lasagna.toJSON());
+    todaysPizza.forEach(function(pizza){
+    pizza.get('pizza');
+    console.log('pizza', pizza.toJSON());
 
-    $('.pizzas').append(pizzaTemplate(lasagna.toJSON()));
+    $('.pizzas').append(pizzaTemplate(pizza.toJSON()));
 
     //console.log('lasagna', lasagna.toJSON());
   });
@@ -26,7 +28,7 @@ todaysLasagna.on('sync', function(lasagna) {
 
 
 
-todaysLasagna.on('request', function(){
+todaysPizza.on('request', function(){
   //$('body').css("background-color", "orange");
   $('.button-class').text("Loading...");
 })
@@ -34,7 +36,7 @@ todaysLasagna.on('request', function(){
 $('.button-class').on('click', function(event){
   //event.preventDefault();
 
-  todaysLasagna.fetch();
+  todaysPizza.fetch();
 
 });
 //todaysLasagna.fetch();

@@ -3,15 +3,15 @@
 var $ = require('jquery');
 var Backbone = require('backbone');
 
-var Lasagna = Backbone.Model.extend();
+var Pizza = Backbone.Model.extend();
 
-var LasagnaCollection = Backbone.Collection.extend({
-  model: Lasagna,
+var PizzaCollection = Backbone.Collection.extend({
+  model: Pizza,
   url:'http://tiny-lasagna-server.herokuapp.com/collections/pizza/'
 });
 
 
 module.exports = {
-  Lasagna: Lasagna,
-  LasagnaCollection: LasagnaCollection
+  Pizza: Pizza,
+  PizzaCollection: PizzaCollection
 }
