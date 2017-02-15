@@ -13,7 +13,7 @@ console.log(todaysPizza);
 $(".form-group").html(formTemplate());
 
 todaysPizza.on('sync', function(pizza) {
-
+  $(".button-class").attr("disabled", false);
   $('.button-class').text("Get Pizzas");    $('.pizzas').html("");
 
   todaysPizza.forEach(function(pizza){
@@ -35,7 +35,7 @@ todaysPizza.on('request', function(){
 
 $('.button-class').on('click', function(event){
   //event.preventDefault();
-
+  $(".button-class").attr("disabled", true);
   todaysPizza.fetch();
 
 });
