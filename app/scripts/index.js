@@ -14,9 +14,9 @@ $(".form-group").html(formTemplate());
 
 todaysPizza.on('sync', function(pizza) {
 
-    $('.button-class').text("Get Pizzas");
-    $('.pizzas').html("");
-    todaysPizza.forEach(function(pizza){
+  $('.button-class').text("Get Pizzas");    $('.pizzas').html("");
+
+  todaysPizza.forEach(function(pizza){
     pizza.get('pizza');
     console.log('pizza', pizza.toJSON());
 
